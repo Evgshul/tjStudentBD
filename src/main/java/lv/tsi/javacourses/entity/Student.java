@@ -1,9 +1,6 @@
 package lv.tsi.javacourses.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student {
@@ -13,11 +10,12 @@ public class Student {
     @Column
     private String stnum;
     @Column
-    private String full_name;
+    private String fullName;
     @Column
     private String email;
     @Column
     private String phone;
+
 
     public Long getId() {
         return id;
@@ -35,12 +33,12 @@ public class Student {
         this.stnum = stnum;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
