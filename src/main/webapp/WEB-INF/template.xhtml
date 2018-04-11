@@ -55,15 +55,14 @@
                         outcome="/admin-space/index.xhtml"
                         styleClass="w3-bar-item w3-button"
                         rendered="#{request.isUserInRole('admin')}"/>
-
                 <h:link value="Sign in / Register"
                         outcome="/sign-in.xhtml"
                         styleClass="w3-bar-item w3-button w3-right"
                         rendered="#{not currentUser.signedIn}"/>
                 <h:commandLink value="Sign out"
-                        action="#{signInForm.signOut}"
-                        styleClass="w3-bar-item w3-button w3-right"
-                        rendered="#{currentUser.signedIn}"/>
+                               action="#{signInForm.signOut}"
+                               styleClass="w3-bar-item w3-button w3-right"
+                               rendered="#{currentUser.signedIn}"/>
             </nav>
         </h:form>
 

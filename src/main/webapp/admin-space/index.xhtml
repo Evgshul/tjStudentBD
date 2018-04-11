@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <ui:composition template="/WEB-INF/template.xhtml">
     <ui:define name="content">
         <div class="w3-content">
-            <h3>You see this page because you are logged in as administrator</h3>
-            <h3>This page (and other pages in /admin-space) accessible only to admins</h3>
+
+            <div class="w3-panel w3-xxlarge w3-display-middle" style="width:50%">
+                <div class="w3-margin-top">
+                    <h:link styleClass="w3-btn w3-block w3-round-xlarge w3-green"
+                            value="New Student"
+                            outcome="/admin-space/studentregistrations.xhtnl"/>
+                </div>
+                <div class="w3-margin-top">
+                    <h:link styleClass="w3-btn w3-block w3-round-xlarge w3-blue"
+                            value="Student search"
+                            outcome="/admin-space/index.xhtnl"/>
+                </div>
+                <div class="w3-margin-top">
+                    <h:link styleClass="w3-btn w3-block w3-round-xlarge w3-orange"
+                            value="Examinations"
+                            outcome="/admin-space/index.xhtnl"/>
+                </div>
+            </div>
         </div>
     </ui:define>
 </ui:composition>
