@@ -13,20 +13,24 @@
                 <label>Student Number</label><h:messages for="stnum" errorClass="error-message"/>
                 <h:inputText id="stnum" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.stnum}"
-                             required="true"
-                             requiredMessage="Student Number is required"/>
+                             redisplay="true"
+                             validatorMessage="Student Number should be 8 chars max">
+                <f:validateLength maximum="8"/>
+                </h:inputText>
 
                 <label>Full Name</label><h:message for="fullName" errorClass="error-message"/>
                 <h:inputText id="fullName" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.fullName}"
                              required="true"
                              requiredMessage="Full Name is required"/>
+
                 <label>E-MAIL</label><h:message for="email" errorClass="error-message"/>
                 <h:inputText id="email" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.email}"
                              validatorMessage="It isn't valid email">
-                    <f:validateRegex pattern="#{studentRegistrationForm.emailRedex}"/>
+                    <f:validateRegex pattern="#{studentRegistrationForm.emailRegex}"/>
                 </h:inputText>
+
                 <label>PHONE</label><h:message for="phone" errorClass="error-message"/>
                 <h:inputText id="phone" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.phone}"
