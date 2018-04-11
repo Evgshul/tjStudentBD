@@ -5,9 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * @author Dimitrijs Fedotovs <a href="http://www.bug.guru">www.bug.guru</a>
- */
+
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
