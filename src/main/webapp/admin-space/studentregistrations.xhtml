@@ -43,6 +43,23 @@
                         <f:ajax execute="@form" render="@form"/>
                     </h:commandButton>
                 </div>
+
+                <div class="w3-margin-top">
+                    <h:commandButton styleClass="w3-batton"
+                                     value="Print List"
+                                     action="#{studentPrint}">
+                        <f:ajax execute="@form" render="@form"/>
+                    </h:commandButton>
+                </div>
+
+                <h:panelGroup id="list">
+                    <ui:repeat value="#{studentPrint.allStudent}" var="st">
+                        <p>id: #{st.id} fullname: <h:outputText value="#{st.fullName}"/></p>
+                    </ui:repeat>
+
+                </h:panelGroup>
+
+
             </h:form>
         </div>
     </ui:define>
