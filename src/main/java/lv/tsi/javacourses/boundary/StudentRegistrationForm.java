@@ -4,9 +4,12 @@ package lv.tsi.javacourses.boundary;
 import lv.tsi.javacourses.entity.Student;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 @RequestScoped
@@ -24,6 +27,15 @@ public class StudentRegistrationForm {
     @Transactional
     public String studregister() {
 
+        Query e = em.createQuery("select s from Student s where s.stnum = :stnum");
+        e.setParameter("stnum", stnum);
+        if (e.getResultList().size() > 0) {
+            FacesContext.getCurrentInstance()
+                    .addMessage("student:stnum",
+                            new FacesMessage("Student with this number already registered"));
+        return null;
+        }
+
         Student student = new Student();
         student.setStnum(stnum);
         student.setFullName(fullName);
@@ -32,7 +44,7 @@ public class StudentRegistrationForm {
 
         em.persist(student);
 
-        return null;
+        return "/admin-space/index.xhtml?faces-redirect=true";
     }
 
 

@@ -15,7 +15,7 @@
                              value="#{studentRegistrationForm.stnum}"
                              redisplay="true"
                              validatorMessage="Student Number should be 8 chars max">
-                <f:validateLength maximum="8"/>
+                <f:validateLength minimum="7" maximum="8"/>
                 </h:inputText>
 
                 <label>Full Name</label><h:message for="fullName" errorClass="error-message"/>
@@ -37,7 +37,7 @@
                              required="true"
                              requiredMessage="Phone number is required"/>
                 <div class="w3-margin-top">
-                    <h:commandButton styleClass="w3-btn w3-green"
+                    <h:commandButton styleClass="w3-btn w3-light-blue"
                                      value="Confirm"
                                      action="#{studentRegistrationForm.studregister}">
                         <f:ajax execute="@form" render="@form"/>
