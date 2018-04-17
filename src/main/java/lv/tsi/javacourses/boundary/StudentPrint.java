@@ -15,15 +15,24 @@ import java.util.List;
 @Stateless
 @Named
 public class StudentPrint {
+    private List<Student> getallstudent;
 
     @PersistenceContext
     private EntityManager em;
 
 
-    public List<Student> getAllStudent() {
+    public void getAllStudent() {
 
         Query query = em.createQuery("SELECT a from Student a");
-        return query.getResultList();
+        setGetallstudent(query.getResultList());
 
+    }
+
+    public List<Student> getGetallstudent() {
+        return getallstudent;
+    }
+
+    public void setGetallstudent(List<Student> getallstudent) {
+        this.getallstudent = getallstudent;
     }
 }

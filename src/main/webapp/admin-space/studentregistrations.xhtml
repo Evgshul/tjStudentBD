@@ -15,7 +15,7 @@
                              value="#{studentRegistrationForm.stnum}"
                              redisplay="true"
                              validatorMessage="Student Number should be 8 chars max">
-                <f:validateLength minimum="7" maximum="8"/>
+                    <f:validateLength minimum="7" maximum="8"/>
                 </h:inputText>
 
                 <label>Full Name</label><h:message for="fullName" errorClass="error-message"/>
@@ -43,17 +43,18 @@
                         <f:ajax execute="@form" render="@form"/>
                     </h:commandButton>
                 </div>
-
+            </h:form>
+            <h:form>
                 <div class="w3-margin-top">
                     <h:commandButton styleClass="w3-batton"
                                      value="Print List"
-                                     action="#{studentPrint}">
+                                     action="#{studentPrint.getAllStudent}">
                         <f:ajax execute="@form" render="@form"/>
                     </h:commandButton>
                 </div>
 
                 <h:panelGroup id="list">
-                    <ui:repeat value="#{studentPrint.allStudent}" var="st">
+                    <ui:repeat value="#{studentPrint.getallstudent}" var="st">
                         <p>id: #{st.id} fullname: <h:outputText value="#{st.fullName}"/></p>
                     </ui:repeat>
 
