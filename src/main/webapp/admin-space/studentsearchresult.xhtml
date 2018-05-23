@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <div class="w3-row w3-margin-bottom w3-margin-top">
+                <div class="w3-right w3-col w3-container" style="width: 175px">
+                    <h:commandButton value="Search" action="#{studentSearch.doSearch}" style="width:100%"
+                                     styleClass="w3-button w3-round-xlarge w3-white w3-border w3-border-blue">
+                        <f:ajax render="list" execute="cond"/>
+                    </h:commandButton>
+                </div>
+                <div class="w3-rest w3-container">
+                    <h:inputText id="cond" value="#{studentsSearchForm.cond}" style="width: 100%"
+                                 styleClass="w3-right w3-btn w3-border w3-border-blue"/>
+                </div>
+            </div>
+        </h:form>
+
+        <h:dataTable id="list" value="#{studentsSearchForm.searchResult}" var="st" styleClass="w3-table w3-bordered w3-striped
+        " headerClass="w3-blue">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{st.id}
+            </h:column><h:column>
+            <f:facet name="header">Student Number</f:facet>
+            <h:link value="#{st.stnum}" outcome="/admin-space/student.xhtml">
+                <f:param name="id" value="#{st.id}"/>
+            </h:link>
+        </h:column>
+            <h:column>
+                <f:facet name="header">Full Name</f:facet>
+                #{st.fullName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">E-MAIL</f:facet>
+                #{st.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">PHONE</f:facet>
+                #{st.phone}
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>
+</html>

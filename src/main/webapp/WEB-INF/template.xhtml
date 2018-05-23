@@ -22,11 +22,11 @@
         .content {
             min-height: 100%;
             position: relative;
-            padding-bottom: 140px;
+
         }
 
         footer {
-            height: 100px;
+            height: 50px;
             width: 100%;
             padding-right: 58px;
             position: absolute;
@@ -43,7 +43,7 @@
 <h:body>
     <div class="content">
         <h:form>
-            <nav class="w3-bar w3-black">
+            <nav class="w3-bar w3-white">
                 <h:link value="Home"
                         outcome="/index.xhtml"
                         styleClass="w3-bar-item w3-button"/>
@@ -57,6 +57,14 @@
                         rendered="#{request.isUserInRole('admin')}"/>
                 <h:link value="Sign in / Register"
                         outcome="/sign-in.xhtml"
+                        styleClass="w3-bar-item w3-button w3-right"
+                        rendered="#{not currentUser.signedIn}"/>
+                <h:link value="About"
+                        outcome="/index.xhtml"
+                        styleClass="w3-bar-item w3-button w3-right"
+                        rendered="#{not currentUser.signedIn}"/>
+                <h:link value="Contact"
+                        outcome="/index.xhtml"
                         styleClass="w3-bar-item w3-button w3-right"
                         rendered="#{not currentUser.signedIn}"/>
                 <h:commandLink value="Sign out"

@@ -28,13 +28,13 @@
                 <h:inputText id="email" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.email}"
                              validatorMessage="It isn't valid email">
-                    <f:validateRegex pattern="#{studentRegistrationForm.emailRegex}"/>
+
                 </h:inputText>
 
                 <label>PHONE</label><h:message for="phone" errorClass="error-message"/>
                 <h:inputText id="phone" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.phone}"
-                             required="true"
+                             required="false"
                              requiredMessage="Phone number is required"/>
                 <div class="w3-margin-top">
                     <h:commandButton styleClass="w3-btn w3-light-blue"
@@ -43,23 +43,6 @@
                         <f:ajax execute="@form" render="@form"/>
                     </h:commandButton>
                 </div>
-            </h:form>
-            <h:form>
-                <div class="w3-margin-top">
-                    <h:commandButton styleClass="w3-batton"
-                                     value="Print List"
-                                     action="#{studentPrint.getAllStudent}">
-                        <f:ajax execute="@form" render="@form"/>
-                    </h:commandButton>
-                </div>
-
-                <h:panelGroup id="list">
-                    <ui:repeat value="#{studentPrint.getallstudent}" var="st">
-                        <p>id: #{st.id} fullname: <h:outputText value="#{st.fullName}"/></p>
-                    </ui:repeat>
-
-                </h:panelGroup>
-
 
             </h:form>
         </div>

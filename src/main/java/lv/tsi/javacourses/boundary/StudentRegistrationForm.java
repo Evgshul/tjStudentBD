@@ -1,6 +1,7 @@
 package lv.tsi.javacourses.boundary;
 
 
+import com.sun.beans.finder.ClassFinder;
 import lv.tsi.javacourses.entity.Student;
 
 import javax.enterprise.context.RequestScoped;
@@ -8,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
@@ -33,7 +35,8 @@ public class StudentRegistrationForm {
             FacesContext.getCurrentInstance()
                     .addMessage("student:stnum",
                             new FacesMessage("Student with this number already registered"));
-        return null;
+            return null;
+
         }
 
         Student student = new Student();
@@ -45,7 +48,10 @@ public class StudentRegistrationForm {
         em.persist(student);
 
         return "/admin-space/index.xhtml?faces-redirect=true";
+
     }
+
+
 
 
     public String getEmailRegex() {
