@@ -8,20 +8,26 @@
 <ui:composition template="/WEB-INF/template.xhtml">
 
     <f:metadata>
-        <f:viewParam name="id" value="#{studentDetailForm.studentId}"/>
-        <f:viewAction action="#{studentDetailForm.findStudent}"/>
+        <f:viewParam name="studentId" value="#{studentRegistrationForm.studentId}"/>
     </f:metadata>
-    <ui:define name="title">#{studentDetailForm.student.fullName}</ui:define>
+    <ui:define name="title">#{studentRegistrationForm.fullName}</ui:define>
     <ui:define name="content">
         <div class="w3-content">
             <h:form styleClass="w3-container w3-margin-top">
                 <label>Full Name</label>
-                <h:inputText styleClass="w3-input w3-border" value="#{studentDetailForm.student.fullName}"/>
+                <h:inputText styleClass="w3-input w3-border" value="#{studentRegistrationForm.fullName}"/>
                 <label>E-MAIL</label>
-                <h:inputText styleClass="w3-input w3-border" value="#{studentDetailForm.student.email}"/>
+                <h:inputText styleClass="w3-input w3-border" value="#{studentRegistrationForm.email}"/>
                 <label>PHONE</label>
-                <h:inputText styleClass="w3-input w3-border" value="#{studentDetailForm.student.phone}"/>
+                <h:inputText styleClass="w3-input w3-border" value="#{studentRegistrationForm.phone}"/>
 
+                <div class="w3-margin-top">
+                    <h:commandButton styleClass="w3-btn w3-light-blue"
+                                     value="Correct"
+                                     action="#{studentRegistrationForm.existstudreg}">
+                        <f:ajax execute="@form" render="@form"/>
+                    </h:commandButton>
+                </div>
             </h:form>
         </div>
     </ui:define>
