@@ -9,7 +9,7 @@
     <ui:define name="content">
         <div class="w3-content">
             <h2>New student registration form</h2>
-            <h:form id="student" styleClass="w3-container w3-margin-top">
+            <h:form id="studentregistration" styleClass="w3-container w3-margin-top">
                 <label>Student Number</label><h:messages for="stnum" errorClass="error-message"/>
                 <h:inputText id="stnum" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.stnum}"
@@ -17,7 +17,6 @@
                              validatorMessage="Student Number should be 8 chars max">
                     <f:validateLength minimum="7" maximum="8"/>
                 </h:inputText>
-
                 <label>Full Name</label><h:message for="fullName" errorClass="error-message"/>
                 <h:inputText id="fullName" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.fullName}"
@@ -27,9 +26,7 @@
                 <label>E-MAIL</label><h:message for="email" errorClass="error-message"/>
                 <h:inputText id="email" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.email}"
-                             validatorMessage="It isn't valid email">
-
-                </h:inputText>
+                             validatorMessage="It isn't valid email"/>
 
                 <label>PHONE</label><h:message for="phone" errorClass="error-message"/>
                 <h:inputText id="phone" styleClass="w3-input w3-border"
@@ -40,7 +37,7 @@
                     <h:commandButton styleClass="w3-btn w3-light-blue"
                                      value="Confirm"
                                      action="#{studentRegistrationForm.studregister}">
-                        <f:ajax execute="@form" render="@form"/>
+                        <f:ajax execute="stnum fullName email phone" render="@form"/>
                     </h:commandButton>
                 </div>
 
