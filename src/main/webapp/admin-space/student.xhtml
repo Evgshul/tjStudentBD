@@ -10,25 +10,26 @@
     <f:metadata>
         <f:viewParam name="id" value="#{studentRegistrationForm.studentId}"/>
     </f:metadata>
-    <ui:define name="title">#{studentRegistrationForm.fullName}</ui:define>
+    <ui:define name="title">value=#{studentRegistrationForm.fullName}  </ui:define>
     <ui:define name="content">
         <div class="w3-content">
-            <h:form id="student" styleClass="w3-container w3-margin-top">
+            <h:form id="student" value="#{studentRegistrationForm.fullName}"
+                    styleClass="w3-container w3-margin-top">
                 <h:panelGroup>
-                <label>Full Name</label>
-                <h:inputText id="fullname" styleClass="w3-input w3-border" value="#{studentRegistrationForm.fullName}"/>
-                <label>E-MAIL</label>
-                <h:inputText id="email" styleClass="w3-input w3-border" value="#{studentRegistrationForm.email}"/>
-                <label>PHONE</label>
-                <h:inputText id="phone" styleClass="w3-input w3-border" value="#{studentRegistrationForm.phone}"/>
+                    <label>Full Name</label>
+                    <h:inputText id="fullname" styleClass="w3-input w3-border" value="#{st.fullname}"/>
+                    <label>E-MAIL</label>
+                    <h:inputText id="email" styleClass="w3-input w3-border" value="#{studentRegistrationForm.email}"/>
+                    <label>PHONE</label>
+                    <h:inputText id="phone" styleClass="w3-input w3-border" value="#{studentRegistrationForm.phone}"/>
 
-                <div class="w3-margin-top">
-                    <h:commandButton styleClass="w3-btn w3-light-blue"
-                                     value="Correct"
-                                     action="#{studentRegistrationForm.existstudreg}">
-                        <f:ajax execute="fullname email phone" render="@form"/>
-                    </h:commandButton>
-                </div>
+                    <div class="w3-margin-top">
+                        <h:commandButton styleClass="w3-btn w3-light-blue"
+                                         value="Correct"
+                                         action="#{studentRegistrationForm.existstudreg}">
+                            <f:ajax execute="fullname email phone" render="@form"/>
+                        </h:commandButton>
+                    </div>
                 </h:panelGroup>
             </h:form>
         </div>
