@@ -7,6 +7,9 @@
 
 <ui:composition template="/WEB-INF/template.xhtml">
     <ui:define name="content">
+        <div class="w3-margin-top w3-container">
+            <h2>Student search</h2>
+        </div>
         <h:form>
             <div class="w3-row w3-margin-bottom w3-margin-top">
                 <div class="w3-right w3-col w3-container" style="width: 175px">
@@ -30,10 +33,9 @@
             </h:column>
             <h:column>
                 <f:facet name="header">Student Number</f:facet>
-                #{st.stnum}
-                <!-- <h:link value="#{st.stnum}" outcome="/admin-space/student.xhtml">
-                     <f:param name="id" value="#{st.id}"/>
-                 </h:link>-->
+                <h:link value="#{st.stnum}" outcome="/admin-space/studdatacorr.xhtml">
+                    <f:param name="id" value="#{st.id}"/>
+                </h:link>
             </h:column>
             <h:column>
                 <f:facet name="header">Full Name</f:facet>
@@ -47,11 +49,13 @@
                 <f:facet name="header">PHONE</f:facet>
                 #{st.phone}
             </h:column>
+            <h:column>
+                <h:link styleClass="w3-button w3-white w3-border w3-border-red w3-round-xlarge"
+                        value="add/change" outcome="/admin-space/studdatacorr.xhtml">
+                    <f:param name="id" value="#{st.id}"/>
+                </h:link>
+            </h:column>
         </h:dataTable>
-        <div class="w3-margin-top w3-container">
-            <h:link value="return" styleClass="w3-large" outcome="/admin-space/index.xhtml">
-            </h:link>
-        </div>
     </ui:define>
 </ui:composition>
 </html>

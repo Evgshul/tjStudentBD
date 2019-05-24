@@ -1,11 +1,11 @@
 package lv.tsi.javacourses.boundary;
 
 
-
 import lv.tsi.javacourses.entity.Student;
 
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -18,7 +18,7 @@ import java.io.Serializable;
 
 @ViewScoped
 @Named
-public class StudentRegistrationForm implements Serializable{
+public class StudentRegistrationForm implements Serializable {
     private final static String EMAIL_REGEX = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
     @PersistenceContext
     private EntityManager em;
@@ -34,6 +34,14 @@ public class StudentRegistrationForm implements Serializable{
     private String exam;
 
     private Long studentId;
+    private Student student;
+
+
+
+    @Transactional
+    public void findStudent() {
+        student = em.find(Student.class, studentId);
+    }
 
     @Transactional
     public String studregister() {
@@ -65,13 +73,12 @@ public class StudentRegistrationForm implements Serializable{
     public String existstudreg() {
 
         Student existstud = em.find(Student.class, studentId);
-
         existstud.setEmail(email);
         existstud.setPhone(phone);
         em.persist(existstud);
 
 
-        return "/admin-space/index.xhtml?faces-redirect=true";
+        return "/admin-space/studdatacorsearch.xhtml?faces-redirect=true";
     }
 
 
@@ -149,5 +156,13 @@ public class StudentRegistrationForm implements Serializable{
 
     public void setStudentId(Long studentId) {
         this.studentId = studentId;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }
