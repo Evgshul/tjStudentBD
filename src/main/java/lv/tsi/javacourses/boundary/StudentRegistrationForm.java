@@ -1,6 +1,7 @@
 package lv.tsi.javacourses.boundary;
 
 
+import lv.tsi.javacourses.entity.Evaluation;
 import lv.tsi.javacourses.entity.Student;
 
 
@@ -16,6 +17,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.io.Serializable;
 
+
 @ViewScoped
 @Named
 public class StudentRegistrationForm implements Serializable {
@@ -28,14 +30,10 @@ public class StudentRegistrationForm implements Serializable {
     //private String discipline;
     private String email;
     private String phone;
-    private String controlwork1;
-    private String controlwork2;
-    private String controlwork3;
-    private String exam;
+
 
     private Long studentId;
     private Student student;
-
 
 
     @Transactional
@@ -120,38 +118,6 @@ public class StudentRegistrationForm implements Serializable {
 
     public Long getStudentId() {
         return studentId;
-    }
-
-    public String getControlwork1() {
-        return controlwork1;
-    }
-
-    public void setControlwork1(String controlwork1) {
-        this.controlwork1 = controlwork1;
-    }
-
-    public String getControlwork2() {
-        return controlwork2;
-    }
-
-    public void setControlwork2(String controlwork2) {
-        this.controlwork2 = controlwork2;
-    }
-
-    public String getControlwork3() {
-        return controlwork3;
-    }
-
-    public void setControlwork3(String controlwork3) {
-        this.controlwork3 = controlwork3;
-    }
-
-    public String getExam() {
-        return exam;
-    }
-
-    public void setExam(String exam) {
-        this.exam = exam;
     }
 
     public void setStudentId(Long studentId) {

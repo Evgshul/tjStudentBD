@@ -32,13 +32,27 @@ public class StudentSearch {
                 "UPPER(s.stnum) like :cond " +
                 "OR UPPER(s.fullName) like :cond " +
                 "OR UPPER(s.email) like :cond " +
-                "OR UPPER(s.phone) like :cond "
-        );
+                "OR UPPER(s.phone) like :cond " +
+                "OR UPPER(s.exam) like :cond " +
+                "OR UPPER(s.controlwork1) like :cond " +
+                "OR UPPER(s.controlwork2) like :cond " +
+                "OR UPPER(s.controlwork3) like :cond ");
+
         String cond = "%" + studentSearchForm.getCond().toUpperCase() + "%";
         q.setParameter("cond", cond);
         studentSearchForm.setSearchResult(q.getResultList());
 
     }
 
+    public void setEvuluatuionSt() {
+
+        Query query = em.createQuery("SELECT st FROM Student st where " +
+                "UPPER(st.stnum) like :cond " +
+                "OR UPPER(st.fullName) like :cond ");
+        String cond = "%" + studentSearchForm.getCond().toUpperCase() + "%";
+        query.setParameter("cond", cond);
+        studentSearchForm.setSearchResult(query.getResultList());
+
+    }
 
 }

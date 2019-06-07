@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<ui:composition template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="w3=margin-top w3-container">
+            <h2>Student search for evaluation</h2>
+        </div>
+        <h:form>
+            <div class="w3-row w3-margin-bottom w3-margin-top">
+                <div class="w3-right w3-col w3-container" style="width: 175px">
+                    <h:commandButton value="Search Student" action="#{studentSearch.setEvuluatuionSt}"
+                                     style="width: 100%"
+                                     styleClass="w3-button w3-round-xlarge w3-white w3-border w3-border-blue">
+                        <f:ajax render="list" execute="cond"/>
+                    </h:commandButton>
+                </div>
+                <div class="w3-rest w3-container">
+                    <h:inputText id="cond" value="#{studentsSearchForm.cond}" style="width: 100%"
+                                 styleClass="w3-right w3-btn w3-border w3-border-blue"/>
+                </div>
+            </div>
+        </h:form>
+        <h:dataTable id="list" value="#{studentsSearchForm.searchResult}" var="s"
+                     styleClass="w3-table w3-bordered w3-striped"
+                     headerClass="w3-orange">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{s.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Student Number</f:facet>
+                #{s.stnum}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Student Fullname</f:facet>
+                #{s.fullName}
+            </h:column>
+            <h:column>
+                <h:link styleClass="w3-button w3-white w3-border w3-border-green w3-round-xlarge"
+                        value="Control work1" outcome="/admin-space/setevalutionexam.xhtml">
+                    <f:param name="id" value="#{s.id}"/>
+                </h:link>
+            </h:column>
+            <h:column>
+                <h:link styleClass="w3-button w3-white w3-border w3-border-green w3-round-xlarge"
+                        value="Control work2" outcome="/admin-space/setevalutionexam.xhtml">
+                    <f:param name="id" value="#{s.id}"/>
+                </h:link>
+            </h:column>
+            <h:column>
+                <h:link styleClass="w3-button w3-white w3-border w3-border-green w3-round-xlarge"
+                        value="Control work3" outcome="/admin-space/setevalutionexam.xhtml">
+                    <f:param name="id" value="#{s.id}"/>
+                </h:link>
+            </h:column>
+            <h:column>
+                <h:link styleClass="w3-button w3-white w3-border w3-border-green w3-round-xlarge"
+                        value="set EXAM" outcome="/admin-space/setevalutionexam.xhtml">
+                    <f:param name="id" value="#{s.id}"/>
+                </h:link>
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>
+</html>

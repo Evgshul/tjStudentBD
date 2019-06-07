@@ -1,6 +1,7 @@
 package lv.tsi.javacourses.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "students")
@@ -19,13 +20,18 @@ public class Student {
     @Column
     private String phone;
     @Column
+    //@Enumerated(EnumType.STRING)
     private String exam;
     @Column
+    //@Enumerated(EnumType.STRING)
     private String controlwork1;
     @Column
+    //@Enumerated(EnumType.STRING)
     private String controlwork2;
     @Column
+    //@Enumerated(EnumType.STRING)
     private String controlwork3;
+
 
     public Long getId() {
         return id;
@@ -75,36 +81,47 @@ public class Student {
         this.discipline = discipline;
     }*/
 
+
+    /*public Evaluation getExam() {
+        return exam;
+    }
+
+    public void setExam(Evaluation exam) {
+        this.exam = exam;
+    }
+
+
+    public Evaluation getControlwork1() {
+        return controlwork1;
+    }
+
+    public void setControlwork1(Evaluation controlwork1) {
+        this.controlwork1 = controlwork1;
+    }
+
+
+    public Evaluation getControlwork2() {
+        return controlwork2;
+    }
+
+    public void setControlwork2(Evaluation controlwork2) {
+        this.controlwork2 = controlwork2;
+    }
+
+    public Evaluation getControlwork3() {
+        return controlwork3;
+    }
+
+    public void setControlwork3(Evaluation controlwork3) {
+        this.controlwork3 = controlwork3;
+    }*/
+
     public String getExam() {
         return exam;
     }
 
     public void setExam(String exam) {
         this.exam = exam;
-    }
-
-    public String getControlwork1() {
-        return controlwork1;
-    }
-
-    public void setControlwork1(String controlwork1) {
-        this.controlwork1 = controlwork1;
-    }
-
-    public String getControlwork2() {
-        return controlwork2;
-    }
-
-    public void setControlwork2(String controlwork2) {
-        this.controlwork2 = controlwork2;
-    }
-
-    public String getControlwork3() {
-        return controlwork3;
-    }
-
-    public void setControlwork3(String controlwork3) {
-        this.controlwork3 = controlwork3;
     }
 
     @Override
@@ -115,12 +132,13 @@ public class Student {
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", exam='" + exam + '\'' +
-                ", controlwork1='" + controlwork1 + '\'' +
-                ", controlwork2='" + controlwork2 + '\'' +
-                ", controlwork3='" + controlwork3 + '\'' +
+                ", exam=" + exam +
+                ", controlwork1=" + controlwork1 +
+                ", controlwork2=" + controlwork2 +
+                ", controlwork3=" + controlwork3 +
                 '}';
     }
+
 /*   @Override
     public String toString() {
         return "Student{" +
