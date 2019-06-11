@@ -13,26 +13,44 @@
     </f:metadata>
     <ui:define name="title">value=#{studentEvaluation.studentId}</ui:define>
     <ui:define name="content">
-        <div class="w3-content">
-
+        <div class="w3-row">
             <h:form id="setevalutionexam" value="#{studentEvaluation.studentId}"
-                    styleClass="w3-container w3-margin-top">
+                    styleClass="w3-container">
                 <h:panelGroup>
-                    <h4>Student Fullname: #{studentEvaluation.student.fullName}</h4>
+                    <div class="w3-half w3-container w3-brown">
+                        <h4 class="w3-xxlarge"> Student: #{studentEvaluation.student.fullName}</h4>
+                        <h5 class="w3.xlarge">Student exam mark: #{studentEvaluation.student.exam}</h5>
+                        <h:outputText rendered="#{not empty studentEvaluation.student.exam}">
+                            <h5>#{studentEvaluation.student.exam}</h5>
+                        </h:outputText>
+                        <h:panelGroup rendered="#{empty studentEvaluation.student.exam}">
+                            <div class="w3-panel w3-light-grey">
+                                <p>Nothing to display here</p>
+                            </div>
+                        </h:panelGroup>
+                        <div class="w3-half w3-margin-top">
+                            <div class="w3-margine-top">
+                                <label>Set the Exam date</label><br></br>
+                                <label>Date format dd.mm.yyyy</label>
+                                <h:inputText id="date" styleClass="w3-input w3-border"
+                                             value="#{studentEvaluation.dateofexam}">
+                                </h:inputText>
+                            </div>
+                            <div class="w3-margin-top">
+                                <h:outputLabel for="mark" value="Select the mark "/>
+                                <h:selectOneMenu id="mark" styleClass="w3-button w3-white w3-border w3-border-black"
+                                                 value="#{studentEvaluation.exam}">
+                                    <f:selectItems value="#{studentEvaluation.evaluation}"/>
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="w3-margin-top">
+                                <h:commandButton
+                                        styleClass="w3-button w3-white w3-border w3-round-xlarge w3-border-black "
+                                        value="set Exam"
+                                        action="#{studentEvaluation.studEvaluation}"/>
 
-                    <h:selectOneMenu styleClass="w3-button w3-white w3-border w3-border-black"
-                            value="#{studentEvaluation.exam}">
-                        <f:selectItems value="#{studentEvaluation.evaluation}"/>
-                        <!-- <f:selectItem itemValue="1" itemLabel="1"/>
-                        <f:selectItem itemValue="2" itemLabel="2"/>
-                        <f:selectItem itemValue="OK" itemLabel="OK"/>
-                        <f:selectItem itemValue="NO" itemLabel="NO"/>-->
-                    </h:selectOneMenu>
-                    <div class="w3-margin-top">
-                        <h:commandButton styleClass="w3-button w3-white w3-border w3-border-black"
-                                         value="set Exam"
-                                         action="#{studentEvaluation.studEvaluation}"/>
-
+                            </div>
+                        </div>
                     </div>
                 </h:panelGroup>
             </h:form>

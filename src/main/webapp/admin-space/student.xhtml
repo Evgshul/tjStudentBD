@@ -5,30 +5,43 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="/WEB-INF/template.xhtml">
+<ui:composition template="/admin-space/template1.xhtml">
     <f:metadata>
         <f:viewParam name="id" value="#{studentRegistrationForm.studentId}"/>
         <f:viewAction action="#{studentRegistrationForm.findStudent}"/>
     </f:metadata>
     <ui:define name="title">value=#{studentRegistrationForm.studentId}</ui:define>
-    <ui:define name="content">
-        <div class="w3-content">
+    <ui:define name="content1">
+        <div class="w3-container w3-half">
             <h:form id="student" value="#{studentRegistrationForm.studentId}"
                     styleClass="w3-container w3-margin-top">
                 <h:panelGroup>
                     <h4>#{studentRegistrationForm.student.fullName}</h4>
-                    <label>E-MAIL</label>
-                    <h:inputText id="email" styleClass="w3-input w3-border" value="#{studentRegistrationForm.email}"/>
-                    <label>PHONE</label>
-                    <h:inputText id="phone" styleClass="w3-input w3-border" value="#{studentRegistrationForm.phone}"/>
-
-                    <div class="w3-margin-top">
-                        <h:commandButton styleClass="w3-btn w3-light-blue"
-                                         value="Correct"
-                                         action="#{studentRegistrationForm.existstudreg}">
-                            <f:ajax execute="email phone" render="@form"/>
-                        </h:commandButton>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="Number: #{studentRegistrationForm.student.stnum}"/>
                     </div>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="E-mail: #{studentRegistrationForm.student.email}"/>
+                    </div>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="Phone: #{studentRegistrationForm.student.phone}"/>
+                    </div>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="Control work 1: #{studentRegistrationForm.student.controlwork1}"/>
+                    </div>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="Control work 2: #{studentRegistrationForm.student.controlwork2}"/>
+                    </div>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="Control work 3: #{studentRegistrationForm.student.controlwork3}"/>
+                    </div>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="Date of exam: #{studentRegistrationForm.student.dateofexam}"/>
+                    </div>
+                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
+                        <h:outputText value="Exam: #{studentRegistrationForm.student.exam}"/>
+                    </div>
+                    <div class="w3-margin-top"></div>
                 </h:panelGroup>
             </h:form>
         </div>

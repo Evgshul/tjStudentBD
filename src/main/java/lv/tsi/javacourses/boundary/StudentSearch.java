@@ -33,6 +33,7 @@ public class StudentSearch {
                 "OR UPPER(s.fullName) like :cond " +
                 "OR UPPER(s.email) like :cond " +
                 "OR UPPER(s.phone) like :cond " +
+                "OR UPPER(s.dateofexam) like :cond " +
                 "OR UPPER(s.exam) like :cond " +
                 "OR UPPER(s.controlwork1) like :cond " +
                 "OR UPPER(s.controlwork2) like :cond " +

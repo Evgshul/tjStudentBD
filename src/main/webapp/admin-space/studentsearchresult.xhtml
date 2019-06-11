@@ -31,13 +31,12 @@
             <h:column>
                 <f:facet name="header">Student Number</f:facet>
                 #{st.stnum}
-                <!-- <h:link value="#{st.stnum}" outcome="/admin-space/student.xhtml">
-                     <f:param name="id" value="#{st.id}"/>
-                 </h:link>-->
             </h:column>
             <h:column>
                 <f:facet name="header">Full Name</f:facet>
-                #{st.fullName}
+                <h:link value="#{st.fullName}" outcome="/admin-space/student.xhtml">
+                    <f:param name="id" value="#{st.id}"/>
+                </h:link>
             </h:column>
             <h:column>
                 <f:facet name="header">E-MAIL</f:facet>
@@ -47,6 +46,27 @@
                 <f:facet name="header">PHONE</f:facet>
                 #{st.phone}
             </h:column>
+            <h:column>
+                <f:facet name="header">work 1</f:facet>
+                #{st.controlwork1}
+            </h:column>
+            <h:column>
+                <f:facet name="header">work 2</f:facet>
+                #{st.controlwork2}
+            </h:column>
+            <h:column>
+                <f:facet name="header">work 3</f:facet>
+                #{st.controlwork3}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date ot exam</f:facet>
+                #{st.dateofexam}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Exam</f:facet>
+                #{st.exam}
+            </h:column>
+
         </h:dataTable>
         <div class="w3-margin-top w3-container">
             <h:link value="return" styleClass="w3-large" outcome="/admin-space/index.xhtml">
