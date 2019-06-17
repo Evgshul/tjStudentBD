@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://fonts.googleapis.com/css?family=Allerta+Stencil">
 
 <ui:composition template="/admin-space/template1.xhtml">
     <f:metadata>
@@ -12,38 +14,71 @@
     </f:metadata>
     <ui:define name="title">value=#{studentRegistrationForm.studentId}</ui:define>
     <ui:define name="content1">
-        <div class="w3-container w3-half">
-            <h:form id="student" value="#{studentRegistrationForm.studentId}"
-                    styleClass="w3-container w3-margin-top">
-                <h:panelGroup>
-                    <h4>#{studentRegistrationForm.student.fullName}</h4>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="Number: #{studentRegistrationForm.student.stnum}"/>
-                    </div>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="E-mail: #{studentRegistrationForm.student.email}"/>
-                    </div>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="Phone: #{studentRegistrationForm.student.phone}"/>
-                    </div>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="Control work 1: #{studentRegistrationForm.student.controlwork1}"/>
-                    </div>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="Control work 2: #{studentRegistrationForm.student.controlwork2}"/>
-                    </div>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="Control work 3: #{studentRegistrationForm.student.controlwork3}"/>
-                    </div>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="Date of exam: #{studentRegistrationForm.student.dateofexam}"/>
-                    </div>
-                    <div class="w3-panel w3-sand w3-xlarge w3-serif">
-                        <h:outputText value="Exam: #{studentRegistrationForm.student.exam}"/>
-                    </div>
-                    <div class="w3-margin-top"></div>
-                </h:panelGroup>
-            </h:form>
+        <div class="w3-row w3-half w3-display-middle">
+            <h1 class="w3-xxlarge w3-left"
+                style="font-family: Bahnschrift
+">#{studentRegistrationForm.student.fullName}</h1>
+            <div class="w3-col s12 m12 16">
+                <table class="w3-table">
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Full Name</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small w3-light-grey">Full name:</th>
+                        <td class="w3-hide-small w3-light-grey">#{studentRegistrationForm.student.fullName}</td>
+                    </tr>
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Student ID</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small">Student ID:</th>
+                        <td>#{studentRegistrationForm.student.stnum}</td>
+                    </tr>
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Email</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small w3-light-grey">Email:</th>
+                        <td class="w3-light-grey">#{studentRegistrationForm.student.email}</td>
+                    </tr>
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Phone</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small">Phone:</th>
+                        <td>#{studentRegistrationForm.student.phone}</td>
+                    </tr>
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Controlwork 1</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small w3-light-grey">Controlwork 1:</th>
+                        <td class="w3-light-grey">#{studentRegistrationForm.student.controlwork1}</td>
+                    </tr>
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Controlwork 2</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small">Controlwork 2:</th>
+                        <td>#{studentRegistrationForm.student.controlwork2}</td>
+                    </tr>
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Controlwork 3</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small w3-light-grey">Controlwork 3:</th>
+                        <td class="w3-light-grey">#{studentRegistrationForm.student.controlwork3}</td>
+                    </tr>
+                    <tr class="w3-hide-large w3-hide-medium">
+                        <th style="padding: 8px 8px 0 8px">Exam</th>
+                    </tr>
+                    <tr>
+                        <th class="w3-hide-small">Exam:</th>
+                        <td>#{studentRegistrationForm.student.exam}</td>
+                        <td>data of exam: #{studentRegistrationForm.student.dateofexam}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </ui:define>
 </ui:composition>

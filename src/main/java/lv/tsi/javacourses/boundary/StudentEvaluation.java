@@ -44,6 +44,10 @@ public class StudentEvaluation implements Serializable {
         return ev;
     }
 
+    public static void addMessage(String idNumber) {
+        FacesContext.getCurrentInstance().addMessage(idNumber,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Mark set successfully!", null));
+    }
 
     @Transactional
     public void findEvaluationStudent() {
@@ -57,7 +61,9 @@ public class StudentEvaluation implements Serializable {
         studentevaluation.setDateofexam(dateofexam);
         studentevaluation.setExam(exam);
         em.persist(studentevaluation);
-        return "/admin-space/index.xhtml?faces-redirect=true";
+
+        addMessage("setevaluationexam:mark4");
+        return null;
     }
 
     @Transactional
@@ -65,26 +71,32 @@ public class StudentEvaluation implements Serializable {
         Student studentcontrol1 = em.find(Student.class, studentId);
         studentcontrol1.setControlwork1(controlwork1);
         em.persist(studentcontrol1);
-        return "Success";
+
+        addMessage("setcontrolworks:mark");
+
+        return null;
     }
 
     @Transactional
     public String controlworkSetMark2() {
         Student studentcontrol2 = em.find(Student.class, studentId);
-        studentcontrol2.setControlwork1(controlwork2);
+        studentcontrol2.setControlwork2(controlwork2);
         em.persist(studentcontrol2);
-        return "/admin-space/searchstudentforevaluation.xhtml?faces-redirect=true";
+
+        addMessage("setcontrolworks:mark2");
+
+        return null;
     }
 
     @Transactional
     public String controlworkSetMark3() {
         Student studentcontrol3 = em.find(Student.class, studentId);
-        studentcontrol3.setControlwork1(controlwork3);
+        studentcontrol3.setControlwork3(controlwork3);
         em.persist(studentcontrol3);
-        FacesContext.getCurrentInstance().addMessage("controlworks:controlworks3",
-                new FacesMessage("You succesful set mark for controlwork3"));
 
-        return "/admin-space/searchstudentforevaluation.xhtml?faces-redirect=true";
+        addMessage("setcontrolworks:mark3");
+
+        return null;
     }
 
     public Long getStudentId() {

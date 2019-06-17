@@ -45,8 +45,9 @@
 <h:body>
     <div class="content">
         <h:form>
-            <nav class="w3-bar w3-white">
-                <h:link value="Admin home"
+            <nav class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+                <h3 class="w3-bar-item">Menu</h3>
+                <h:link value="Main"
                         outcome="/admin-space/index.xhtml"
                         styleClass="w3-bar-item w3-button"/>
 
@@ -61,5 +62,7 @@
         </h:form>
         <ui:insert name="content1"/>
     </div>
+
+
 </h:body>
 </html>
