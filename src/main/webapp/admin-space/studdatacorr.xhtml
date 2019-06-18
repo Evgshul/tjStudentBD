@@ -5,20 +5,20 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="/WEB-INF/template.xhtml">
-
+<ui:composition template="/admin-space/template1.xhtml">
     <f:metadata>
         <f:viewParam name="id" value="#{studentRegistrationForm.studentId}"/>
         <f:viewAction action="#{studentRegistrationForm.findStudent}"/>
     </f:metadata>
     <ui:define name="title">value=#{studentRegistrationForm.studentId}</ui:define>
-    <ui:define name="content">
-        <div class="w3-content">
+    <ui:define name="content1">
+        <div class="w3-display-middle w3-border" style="width: 300px">
             <h:form id="studdatacorr" value="#{studentRegistrationForm.studentId}"
-                    styleClass="w3-container w3-margin-top">
+                    styleClass="w3-container">
                 <h:panelGroup>
-                    <h4>#{studentRegistrationForm.student.fullName}</h4>
-
+                    <h4 class="w3-xlarge"
+                        style="text-shadow:1px 1px 0 #444">
+                        #{studentRegistrationForm.student.fullName}</h4>
                     <label>E-MAIL</label><h:message for="email" errorClass="error-message"/>
                     <h:inputText id="email" styleClass="w3-input w3-border"
                                  value="#{studentRegistrationForm.email}"

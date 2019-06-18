@@ -1,6 +1,7 @@
 package lv.tsi.javacourses.boundary;
 
 
+import lv.tsi.javacourses.control.Util;
 import lv.tsi.javacourses.entity.Evaluation;
 import lv.tsi.javacourses.entity.Student;
 
@@ -30,8 +31,6 @@ public class StudentRegistrationForm implements Serializable {
     //private String discipline;
     private String email;
     private String phone;
-
-
     private Long studentId;
     private Student student;
 
@@ -60,11 +59,11 @@ public class StudentRegistrationForm implements Serializable {
         student.setFullName(fullName);
         student.setEmail(email);
         student.setPhone(phone);
-
         em.persist(student);
 
-        return "/admin-space/addstudent.xhtml?faces-redirect=true";
+        Util.addConfirm("student:confirm","Successfull set initial student data");
 
+        return null;
     }
 
     @Transactional

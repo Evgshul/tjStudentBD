@@ -45,17 +45,20 @@
 <h:body>
     <div class="content">
         <h:form>
-            <nav class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+            <nav class="w3-sidebar w3-bar-block w3-border w3-border-black w3-round-xlarge" style="width:15%">
                 <h3 class="w3-bar-item">Menu</h3>
                 <h:link value="Main"
                         outcome="/admin-space/index.xhtml"
                         styleClass="w3-bar-item w3-button"/>
 
+                <h:link value="Add Student info"
+                        outcome="/admin-space/studdatacorsearch.xhtml"
+                        styleClass="w3-bar-item w3-button"/>
                 <h:link value="Student evaluations search"
                         outcome="/admin-space/searchstudentforevaluation.xhtml"
                         styleClass="w3-bar-item w3-button"/>
 
-                <h:link value="Student info"
+                <h:link value="Student search"
                         outcome="/admin-space/studentsearchresult.xhtml"
                         styleClass="w3-bar-item w3-button"/>
             </nav>

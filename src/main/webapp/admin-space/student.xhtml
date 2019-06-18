@@ -14,10 +14,10 @@
     </f:metadata>
     <ui:define name="title">value=#{studentRegistrationForm.studentId}</ui:define>
     <ui:define name="content1">
-        <div class="w3-row w3-half w3-display-middle">
-            <h1 class="w3-xxlarge w3-left"
-                style="font-family: Bahnschrift
-">#{studentRegistrationForm.student.fullName}</h1>
+        <div class="w3-row w3-half w3-card w3-display-middle w3-border w3-round-xlarge">
+            <h1 class="w3-xxlarge w3-center"
+                style="font-family: 'Baskerville Old Face'
+">  #{studentRegistrationForm.student.fullName}</h1>
             <div class="w3-col s12 m12 16">
                 <table class="w3-table">
                     <tr class="w3-hide-large w3-hide-medium">
@@ -75,7 +75,7 @@
                     <tr>
                         <th class="w3-hide-small">Exam:</th>
                         <td>#{studentRegistrationForm.student.exam}</td>
-                        <td>data of exam: #{studentRegistrationForm.student.dateofexam}</td>
+                        <td>date : #{studentRegistrationForm.student.dateofexam}</td>
                     </tr>
                 </table>
             </div>

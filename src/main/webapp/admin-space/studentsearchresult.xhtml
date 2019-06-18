@@ -11,7 +11,7 @@
             <div class="w3-row w3-margin-bottom w3-margin-top">
                 <div class="w3-right w3-col w3-container" style="width: 175px">
                     <h:commandButton value="Search" action="#{studentSearch.doSearch}" style="width:100%"
-                                     styleClass="w3-button w3-round-xlarge w3-white w3-border w3-border-blue">
+                                     styleClass="w3-button w3-round-large w3-white w3-border w3-border-blue">
                         <f:ajax render="list" execute="cond"/>
                     </h:commandButton>
                 </div>
@@ -69,7 +69,7 @@
 
         </h:dataTable>
         <div class="w3-margin-top w3-container">
-            <h:link value="return" styleClass="w3-large" outcome="/admin-space/index.xhtml">
+            <h:link value="Admin Main" styleClass="w3-button w3-border w3-round" outcome="/admin-space/index.xhtml">
             </h:link>
         </div>
     </ui:define>

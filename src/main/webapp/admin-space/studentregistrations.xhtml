@@ -5,16 +5,16 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="/WEB-INF/template.xhtml">
-    <ui:define name="content">
-        <div class="w3-content">
-            <h2>New student registration form</h2>
+<ui:composition template="/admin-space/template1.xhtml">
+    <ui:define name="content1">
+        <div class="w3-display-container w3-border w3-padding w3-display-middle" style="width: 50%">
+            <h2 class="w3-xxlarge w3-center"
+                style="font-family: 'Baskerville Old Face'">New student registration form</h2>
             <h:form id="student" styleClass="w3-container w3-margin-top">
                 <label>Student Number</label><h:messages for="stnum" errorClass="error-message"/>
                 <h:inputText id="stnum" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.stnum}"
                              redisplay="true"
-
                              validatorMessage="Student Number shouldn't be less than 7 and more than 8 chars">
                     <f:validateLength minimum="7" maximum="8"/>
 
@@ -37,11 +37,12 @@
                              required="false"
                              requiredMessage="Phone number is required"/>
                 <div class="w3-margin-top">
-                    <h:commandButton styleClass="w3-btn w3-light-blue"
+                    <h:commandButton id="confirm"
+                                     styleClass="w3-btn w3-white w3-border w3-border-black w3-round"
                                      value="Confirm"
                                      action="#{studentRegistrationForm.studregister}">
-
-                        <f:ajax execute="stnum fullName email phone" render="@form"/>
+                        <f:ajax execute="confirm stnum fullName email phone" render="@form"/>
+                        <h:messages for="confirm" infoStyle="color: darkgreen"></h:messages>
                     </h:commandButton>
 
                 </div>
