@@ -17,7 +17,7 @@
             <h:form id="setevaluationexam" value="#{studentEvaluation.studentId}"
                     styleClass="w3-container">
                 <h:panelGroup>
-                    <div class="w3-container w3-border w3-border-black w3-round-xlarge">
+                    <div class="w3-container w3-border w3-pale-red w3-border-black w3-round-xlarge">
                         <h4 class="w3-xlarge"
                             style="text-shadow:1px 1px 0 #444"> Student: #{studentEvaluation.student.fullName}</h4>
                         <h5 class="w3-large">Student exam mark: #{studentEvaluation.student.exam}</h5>
@@ -25,7 +25,8 @@
                             <div class="w3-margine-top">
                                 <label>Set the Exam date</label><br></br>
                                 <label>Date format dd.mm.yyyy</label>
-                                <h:inputText id="date" styleClass="w3-input w3-border w3-border-black w3-round" style="width:30%"
+                                <h:inputText id="date" styleClass="w3-input w3-border w3-border-black w3-round"
+                                             style="width:30%"
                                              value="#{studentEvaluation.dateofexam}">
                                 </h:inputText>
                             </div>
@@ -33,7 +34,7 @@
                                 <h:panelGrid id="grid4" columns="3" cellpadding="1">
                                     <h:outputLabel for="mark4" value="Select the mark "/>
                                     <h:selectOneMenu id="mark4"
-                                                     styleClass="w3-button w3-white w3-border w3-border-black w3-round"
+                                                     styleClass="w3-button w3-white w3-hover-pink w3-border w3-border-black w3-round"
                                                      value="#{studentEvaluation.exam}">
                                         <f:selectItems value="#{studentEvaluation.evaluation}"/>
                                     </h:selectOneMenu>
@@ -42,7 +43,7 @@
                             </div>
                             <div class="w3-margin-top">
                                 <h:commandButton
-                                        styleClass="w3-button w3-white w3-border w3-round-large w3-border-black "
+                                        styleClass="w3-button w3-white w3-hover-pink w3-border w3-round-large w3-border-black "
                                         value="set Exam"
                                         action="#{studentEvaluation.studEvaluation}"/>
                             </div>

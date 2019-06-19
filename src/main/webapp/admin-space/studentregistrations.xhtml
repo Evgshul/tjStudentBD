@@ -7,7 +7,7 @@
 
 <ui:composition template="/admin-space/template1.xhtml">
     <ui:define name="content1">
-        <div class="w3-display-container w3-border w3-padding w3-display-middle" style="width: 50%">
+        <div class="w3-display-container w3-border w3-padding w3-display-middle w3-pale-red" style="width: 50%">
             <h2 class="w3-xxlarge w3-center"
                 style="font-family: 'Baskerville Old Face'">New student registration form</h2>
             <h:form id="student" styleClass="w3-container w3-margin-top">
@@ -36,17 +36,26 @@
                              value="#{studentRegistrationForm.phone}"
                              required="false"
                              requiredMessage="Phone number is required"/>
-                <div class="w3-margin-top">
-                    <h:commandButton id="confirm"
-                                     styleClass="w3-btn w3-white w3-border w3-border-black w3-round"
-                                     value="Confirm"
-                                     action="#{studentRegistrationForm.studregister}">
-                        <f:ajax execute="confirm stnum fullName email phone" render="@form"/>
-                        <h:messages for="confirm" infoStyle="color: darkgreen"></h:messages>
-                    </h:commandButton>
+                <div class="w3-margin-top w3-row">
+                    <div class="w3-col w3-container" style="width: 50%">
+                        <h:commandButton id="confirm"
+                                         styleClass="w3-btn w3-white w3-hover-purple w3-border w3-border-black w3-round"
+                                         style="width: 100%"
+                                         value="Confirm"
+                                         action="#{studentRegistrationForm.studregister}">
+                            <f:ajax execute="confirm stnum fullName email phone" render="@form"/>
 
+                            <h:messages for="confirm" infoStyle="color: darkgreen"></h:messages>
+                        </h:commandButton>
+                    </div>
+                    <div class="w3-col w3-container" style="width: 50%">
+                        <h:button value="Add student"
+                                  style="width: 100%"
+                                  styleClass="w3-btn w3-white w3-hover-pink w3-border w3-border-black w3-round">
+                        </h:button>
+
+                    </div>
                 </div>
-
             </h:form>
         </div>
     </ui:define>

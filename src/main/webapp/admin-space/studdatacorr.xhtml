@@ -12,29 +12,44 @@
     </f:metadata>
     <ui:define name="title">value=#{studentRegistrationForm.studentId}</ui:define>
     <ui:define name="content1">
-        <div class="w3-display-middle w3-border" style="width: 300px">
+        <div class="w3-display-middle w3-pale-red w3-border" style="width: 50%">
             <h:form id="studdatacorr" value="#{studentRegistrationForm.studentId}"
                     styleClass="w3-container">
                 <h:panelGroup>
-                    <h4 class="w3-xlarge"
+                    <h4 class="w3-xlarge w3-center"
                         style="text-shadow:1px 1px 0 #444">
                         #{studentRegistrationForm.student.fullName}</h4>
-                    <label>E-MAIL</label><h:message for="email" errorClass="error-message"/>
-                    <h:inputText id="email" styleClass="w3-input w3-border"
-                                 value="#{studentRegistrationForm.email}"
-                                 validatorMessage="It isn't valid email">
-                        <f:validateRegex pattern="#{registrationForm.emailRegex}"/>
-                    </h:inputText>
+                    <label class="w3-margine-left">E-MAIL</label><h:message for="email" errorClass="error-message"/>
+                    <div class="w3-row w3-margine-top">
+                        <div class="w3-col w3-margine-left" style="width: 75%">
+                            <h:inputText id="email" styleClass="w3-input w3-border"
+                                         value="#{studentRegistrationForm.email}"
+                                         validatorMessage="It isn't valid email">
+                                <f:validateRegex pattern="#{registrationForm.emailRegex}"/>
+                            </h:inputText>
+                        </div>
+                        <div class="w3-col w3-container" style="width: 25%">
+                            <h:commandButton styleClass="w3-btn w3-light-blue"
+                                             value="Correct email"
+                                             action="#{studentRegistrationForm.existstudreg}">
+                                <f:ajax execute="email" render="@form"/>
+                            </h:commandButton>
+                        </div>
+                    </div>
                     <label>PHONE</label>
-                    <h:inputText id="phone" styleClass="w3-input w3-border"
-                                 value="#{studentRegistrationForm.phone}"/>
-
-                    <div class="w3-margin-top">
-                        <h:commandButton styleClass="w3-btn w3-light-blue"
-                                         value="Correct"
-                                         action="#{studentRegistrationForm.existstudreg}">
-                            <f:ajax execute="email phone" render="@form"/>
-                        </h:commandButton>
+                    <div class="w3-row w3-margine-left">
+                        <div class="w3-col w3-margine-left" style="width: 75%">
+                            <h:inputText id="phone" styleClass="w3-input w3-border"
+                                         value="#{studentRegistrationForm.phone}"/>
+                        </div>
+                        <div class="w3-col w3-container" style="width: 25%">
+                            <h:commandButton styleClass="w3-btn w3-light-blue"
+                                             value="Correct phone"
+                                             action="#{studentRegistrationForm.existstudreg}">
+                                <f:ajax execute="phone" render="@form"/>
+                            </h:commandButton>
+                            <div class="w3-margin-bottom"></div>
+                        </div>
                     </div>
                 </h:panelGroup>
             </h:form>
