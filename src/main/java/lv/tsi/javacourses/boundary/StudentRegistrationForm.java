@@ -61,21 +61,31 @@ public class StudentRegistrationForm implements Serializable {
         student.setPhone(phone);
         em.persist(student);
 
-        Util.addConfirm("student:confirm","Successfull set initial student data");
+        Util.addConfirm("student:confirm", "Successfull set initial student data");
 
         return null;
     }
 
     @Transactional
-    public String existstudreg() {
+    public String existstudregemail() {
 
         Student existstud = em.find(Student.class, studentId);
         existstud.setEmail(email);
+        em.persist(existstud);
+        Util.addConfirm("studdatacorr:email", "Email set success");
+        return null;
+    }
+
+
+    @Transactional
+    public String existstudregphone() {
+
+        Student existstud = em.find(Student.class, studentId);
         existstud.setPhone(phone);
         em.persist(existstud);
+Util.addConfirm("studdatacorr:phone","phone number set successfully");
 
-
-        return "/admin-space/studdatacorsearch.xhtml?faces-redirect=true";
+        return null;
     }
 
 
