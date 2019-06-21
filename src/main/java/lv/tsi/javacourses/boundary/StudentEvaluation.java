@@ -59,7 +59,7 @@ public class StudentEvaluation implements Serializable {
 
         Student studentevaluation = em.find(Student.class, studentId);
         studentevaluation.setDateofexam(dateofexam);
-        studentevaluation.setExam(exam);
+        studentevaluation.setExam(exam.substring(1));
         em.persist(studentevaluation);
 
         addMessage("setevaluationexam:mark4");
@@ -69,7 +69,7 @@ public class StudentEvaluation implements Serializable {
     @Transactional
     public String controlworkSetMark1() {
         Student studentcontrol1 = em.find(Student.class, studentId);
-        studentcontrol1.setControlwork1(controlwork1);
+        studentcontrol1.setControlwork1(controlwork1.substring(1));
         em.persist(studentcontrol1);
 
         addMessage("setcontrolworks:mark");
@@ -80,7 +80,7 @@ public class StudentEvaluation implements Serializable {
     @Transactional
     public String controlworkSetMark2() {
         Student studentcontrol2 = em.find(Student.class, studentId);
-        studentcontrol2.setControlwork2(controlwork2);
+        studentcontrol2.setControlwork2(controlwork2.substring(1));
         em.persist(studentcontrol2);
 
         addMessage("setcontrolworks:mark2");
@@ -91,7 +91,7 @@ public class StudentEvaluation implements Serializable {
     @Transactional
     public String controlworkSetMark3() {
         Student studentcontrol3 = em.find(Student.class, studentId);
-        studentcontrol3.setControlwork3(controlwork3);
+        studentcontrol3.setControlwork3(controlwork3.substring(1));
         em.persist(studentcontrol3);
 
         addMessage("setcontrolworks:mark3");
