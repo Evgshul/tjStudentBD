@@ -11,14 +11,14 @@ public class Student {
     private Long id;
     @Column
     private String stnum;
-    //    @Column
-    //  private String discipline;
     @Column
     private String fullName;
     @Column
     private String email;
     @Column
     private String phone;
+    @Column
+    private String discipline;
     @Column
     private String dateofexam;
     @Column
@@ -71,13 +71,13 @@ public class Student {
         this.phone = phone;
     }
 
-/*    public String getDiscipline() {
+    public String getDiscipline() {
         return discipline;
     }
 
     public void setDiscipline(String discipline) {
         this.discipline = discipline;
-    }*/
+    }
 
     public String getDateofexam() {
         return dateofexam;
@@ -127,6 +127,7 @@ public class Student {
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", discipline='" + discipline + '\'' +
                 ", dateofexam='" + dateofexam + '\'' +
                 ", exam='" + exam + '\'' +
                 ", controlwork1='" + controlwork1 + '\'' +

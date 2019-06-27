@@ -1,18 +1,18 @@
 package lv.tsi.javacourses.boundary;
 
 
+
 import lv.tsi.javacourses.control.Util;
-import lv.tsi.javacourses.entity.Evaluation;
+import lv.tsi.javacourses.entity.Nameofdiscipline;
 import lv.tsi.javacourses.entity.Student;
 
 
 import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
@@ -28,7 +28,7 @@ public class StudentRegistrationForm implements Serializable {
 
     private String stnum;
     private String fullName;
-    //private String discipline;
+    private String discipline;
     private String email;
     private String phone;
     private Long studentId;
@@ -39,6 +39,23 @@ public class StudentRegistrationForm implements Serializable {
     public void findStudent() {
         student = em.find(Student.class, studentId);
     }
+
+    public SelectItem[] selectDiscipline(){
+
+        SelectItem[] sd = new SelectItem[Nameofdiscipline.values().length];
+
+        /*int i = 0;
+        for (Nameofdiscipline n : Nameofdiscipline.values()) {
+            sd[i++] = new SelectItem(n, n.getLabel());
+        }*/
+
+        for (int i = 0; i < Nameofdiscipline.values().length; i++) {
+            sd[i] = new SelectItem(Nameofdiscipline.values()[i], Nameofdiscipline.values()[i].getLabel());
+            System.out.println(sd[i]);
+        }
+        return sd;
+    }
+
 
     @Transactional
     public String studregister() {
@@ -55,13 +72,24 @@ public class StudentRegistrationForm implements Serializable {
 
         Student student = new Student();
         student.setStnum(stnum);
-        //student.setDiscipline(discipline);
+        student.setDiscipline(discipline);
         student.setFullName(fullName);
         student.setEmail(email);
         student.setPhone(phone);
         em.persist(student);
 
         Util.addConfirm("student:confirm", "Successfull set initial student data");
+
+        return null;
+    }
+
+    @Transactional
+    public String setdiscipline() {
+        Student stdiscipline = em.find(Student.class, studentId);
+        stdiscipline.setDiscipline(discipline);
+        em.persist(stdiscipline);
+
+        Util.addConfirm("studdatacorr:discipline", "Discipline set successfull");
 
         return null;
     }
@@ -83,7 +111,7 @@ public class StudentRegistrationForm implements Serializable {
         Student existstud = em.find(Student.class, studentId);
         existstud.setPhone(phone);
         em.persist(existstud);
-Util.addConfirm("studdatacorr:phone","phone number set successfully");
+        Util.addConfirm("studdatacorr:phone", "phone number set successfully");
 
         return null;
     }
@@ -139,5 +167,13 @@ Util.addConfirm("studdatacorr:phone","phone number set successfully");
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public String getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(String discipline) {
+        this.discipline = discipline;
     }
 }

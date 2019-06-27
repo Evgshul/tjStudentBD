@@ -25,6 +25,17 @@
                              required="true"
                              requiredMessage="Full Name is required"/>
 
+                <h:panelGrid id="grid0" columns="3" cellpadding="1">
+                    <h:outputLabel for="discipline" value="Select the discipline "/>
+                    <h:selectOneMenu id="discipline"
+                                     styleClass="w3-button w3-white w3-hover-pink w3-border w3-border-black w3-round"
+                                     value="#{studentRegistrationForm.discipline}">
+                        <f:selectItems value="#{studentRegistrationForm.selectDiscipline()}"/>
+                    </h:selectOneMenu>
+                    <h:message for="discipline" infoClass="info-message"/>
+                </h:panelGrid>
+
+
                 <label>E-MAIL</label><h:message for="email" errorClass="error-message"/>
                 <h:inputText id="email" styleClass="w3-input w3-border"
                              value="#{studentRegistrationForm.email}"
@@ -43,7 +54,7 @@
                                          style="width: 100%"
                                          value="Confirm"
                                          action="#{studentRegistrationForm.studregister}">
-                            <f:ajax execute="confirm stnum fullName email phone" render="@form"/>
+                            <f:ajax execute="confirm stnum fullName discipline email phone" render="@form"/>
 
                             <h:messages for="confirm" infoStyle="color: darkgreen"></h:messages>
                         </h:commandButton>
